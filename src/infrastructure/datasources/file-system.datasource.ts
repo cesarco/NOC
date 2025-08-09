@@ -10,6 +10,7 @@ export class FileSystemDataSource implements LogDataSource {
 
   constructor() {
     // Initialize any necessary resources or configurations
+    this.createLogsFileFiles();
   }
 
   private createLogsFileFiles = () => {
