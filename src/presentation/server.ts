@@ -10,6 +10,7 @@ const fileSystemLogRepository = new LogImplementationRepository(
 export class ServerApp {
   public static start() {
     console.log("Server is starting...");
+    // nodemailer 
     CronService.createJob("*/5 * * * * *", () => {
       const url = "https://google.com";
       new CheckService(
