@@ -5,4 +5,6 @@ export const envs = {
     PORT: env.get('PORT').default(3000).asIntPositive(),
     MAILER_EMAIL: env.get('MAILER_EMAIL').required().asEmailString(),
     MAILER_SECRET_KEY: env.get('MAILER_SECRET_KEY').required().asString(),
+    MAILER_SERVICE: env.get('MAILER_SERVICE').default('gmail').asString(),
+    MAILER_HOST: env.get('MAILER_HOST').default('smtp.gmail.com').asString(),
 }
