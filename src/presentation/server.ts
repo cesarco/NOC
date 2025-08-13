@@ -12,7 +12,9 @@ export class ServerApp {
   public static start() {
     console.log("Server is starting...");
     // nodemailer 
-    const emailService = new EmailService();
+    const emailService = new EmailService(
+      fileSystemLogRepository
+    );
     emailService.sendEmailWithFileSystemLogs('devcesarco@outlook.es');
 
     // CronService.createJob("*/5 * * * * *", () => {
