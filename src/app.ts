@@ -23,5 +23,5 @@ async function main() {
   await newLog.save();
   console.log(newLog);
 
-  //ServerApp.start();
+  ServerApp.start();
 }
