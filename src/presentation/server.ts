@@ -8,8 +8,8 @@ import { MongoLogDatasource } from "../infrastructure/datasources/mongo-log.data
 import { LogSeverityLevel } from "../domain/entities/log.entity";
 
 const LogRepository = new LogImplementationRepository(
-  // new FileSystemDataSource(),
-  new MongoLogDatasource()
+   new FileSystemDataSource(),
+  // new MongoLogDatasource()
 );
 const emailService = new EmailService();
 
@@ -25,20 +25,20 @@ export class ServerApp {
     // )
     // emailService.sendEmailWithFileSystemLogs('devcesarco@outlook.es');
 
-    // const logs = await LogRepository.GetLogs(LogSeverityLevel.low);
-    // console.log(logs);
+     const logs = await LogRepository.GetLogs(LogSeverityLevel.high);
+     console.log(logs);
 
-    CronService.createJob("*/5 * * * * *", () => {
-      const url = "https://google.com";
-      new CheckService(
-        LogRepository,
-        () => {
-          console.log(`Successfully checked ${url}`);
-        },
-        (error) => {
-          console.error("Error callback:", error);
-        }
-      ).execute(url);
-    });
+    // CronService.createJob("*/5 * * * * *", () => {
+    //   const url = "https://google.com";
+    //   new CheckService(
+    //     LogRepository,
+    //     () => {
+    //       console.log(`Successfully checked ${url}`);
+    //     },
+    //     (error) => {
+    //       console.error("Error callback:", error);
+    //     }
+    //   ).execute(url);
+    // });
   }
 }
